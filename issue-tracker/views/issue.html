@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Issue Tracker</title>
+    <meta
+      name="description"
+      content="You can find all the issues related to this project"
+    />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css"
+    />
+    <link rel="stylesheet" href="/public/issue.css" />
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"
+      integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ="
+      crossorigin="anonymous"
+    ></script>
+    <script src="/public/issue.js"></script>
+  </head>
+  <body>
+    <section class="hero is-dark has-text-centered">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title is-4" id="projectTitle">
+            Viewing all issues for:
+          </h1>
+          <div class="field is-grouped is-grouped-centered">
+            <div class="control has-icons-left" id="searchbar">
+              <input
+                class="input"
+                type="text"
+                name="queryStr"
+                value="is:open created:me"
+                placeholder="Search all issues"
+              />
+              <span class="icon is-small is-left">
+                <i class="fas fa-search"></i>
+              </span>
+            </div>
+            <p class="control">
+              <a class="button is-info" id="searchQueries">
+                Search
+              </a>
+            </p>
+            <p class="control">
+              <a class="button is-success" id="issuebtn">
+                New Issue
+              </a>
+            </p>
+          </div>
+          <p class="help is-help">
+            All commands - is:open | is:closed | created: | assigned: | title: |
+            text:
+          </p>
+        </div>
+      </div>
+    </section>
+    <article class="message is-danger">
+      <div class="message-body" id="errorMessageMain"></div>
+    </article>
+    <section class="section">
+      <div class="container" id="issues">
+        <div class="box">
+          <article class="media">
+            <div class="media-content">
+              <div class="content">
+                <p>
+                  <strong>Loading</strong>
+                  <br />
+                  Loading all issues
+                </p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+    <div class="modal" id="newModal">
+      <div class="modal-background"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">Open new issue</p>
+        </header>
+        <section class="modal-card-body">
+          <div class="notification is-danger" id="errorMessageNewForm"></div>
+          <form id="newIssueForm">
+            <div class="field">
+              <label class="label">Title*</label>
+              <div class="control has-icons-left">
+                <input
+                  class="input"
+                  name="issue_title"
+                  type="text"
+                  placeholder="Issue title"
+                  required
+                />
+                <span class="icon is-small is-left">
+                  <i class="fas fa-pen"></i>
+                </span>
+              </div>
+            </div>
+            <div class="field">
+              <label class="label">Description*</label>
+              <div class="control">
+                <textarea
+                  class="textarea"
+                  placeholder="Tell us more about the issue"
+                  name="issue_text"
+                  required
+                ></textarea>
+              </div>
+            </div>
+            <div class="field">
+              <label class="label">Created By*</label>
+              <div class="control has-icons-left">
+                <input
+                  class="input"
+                  type="text"
+                  placeholder="John"
+                  name="created_by"
+                  required
+                />
+                <span class="icon is-small is-left">
+                  <i class="fas fa-user"></i>
+                </span>
+              </div>
+            </div>
+            <div class="field">
+              <label class="label">Assigned To (optional)</label>
+              <div class="control has-icons-left">
+                <input
+                  class="input"
+                  type="text"
+                  placeholder="Henry"
+                  name="assigned_to"
+                />
+                <span class="icon is-small is-left">
+                  <i class="fas fa-user"></i>
+                </span>
+              </div>
+            </div>
+            <div class="field">
+              <label class="label">Status Text (optional)</label>
+              <div class="control has-icons-left">
+                <input
+                  class="input"
+                  type="text"
+                  placeholder="Urgent"
+                  name="status_text"
+                />
+                <span class="icon is-small is-left">
+                  <i class="fas fa-tag"></i>
+                </span>
+              </div>
+            </div>
+          </form>
+        </section>
+        <footer class="modal-card-foot">
+          <button id="newIssueSubmitBtn" class="button is-success">
+            Submit new issue
+          </button>
+          <button class="button" id="cancel">Cancel</button>
+        </footer>
+      </div>
+    </div>
+
+    <div class="modal" id="editModal">
+      <div class="modal-background"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">
+            Edit Issue (Empty fields will not be edited)
+          </p>
+        </header>
+        <section class="modal-card-body">
+          <div class="notification is-danger" id="errorMessageEditForm"></div>
+          <form id="editIssueForm">
+            <div class="field">
+              <label class="label">Title</label>
+              <div class="control has-icons-left">
+                <input
+                  class="input"
+                  name="issue_title"
+                  type="text"
+                  placeholder="Issue title"
+                  required
+                />
+                <span class="icon is-small is-left">
+                  <i class="fas fa-pen"></i>
+                </span>
+              </div>
+            </div>
+            <div class="field">
+              <label class="label">Description</label>
+              <div class="control">
+                <textarea
+                  class="textarea"
+                  placeholder="Tell us more about the issue"
+                  name="issue_text"
+                  required
+                ></textarea>
+              </div>
+            </div>
+            <div class="field">
+              <label class="label">Created By</label>
+              <div class="control has-icons-left">
+                <input
+                  class="input"
+                  type="text"
+                  placeholder="John"
+                  name="created_by"
+                  required
+                />
+                <span class="icon is-small is-left">
+                  <i class="fas fa-user"></i>
+                </span>
+              </div>
+            </div>
+            <div class="field">
+              <label class="label">Assigned To</label>
+              <div class="control has-icons-left">
+                <input
+                  class="input"
+                  type="text"
+                  placeholder="Henry"
+                  name="assigned_to"
+                />
+                <span class="icon is-small is-left">
+                  <i class="fas fa-user"></i>
+                </span>
+              </div>
+            </div>
+            <div class="field">
+              <label class="label">Status Text</label>
+              <div class="control has-icons-left">
+                <input
+                  class="input"
+                  type="text"
+                  placeholder="Urgent"
+                  name="status_text"
+                />
+                <span class="icon is-small is-left">
+                  <i class="fas fa-tag"></i>
+                </span>
+              </div>
+            </div>
+          </form>
+        </section>
+        <footer class="modal-card-foot">
+          <button class="button is-success" id="editFormSave">
+            Save Changes
+          </button>
+          <button class="button" id="editCancel">Cancel</button>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>
