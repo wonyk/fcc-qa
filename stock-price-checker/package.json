@@ -1,7 +1,7 @@
 {
-  "name": "my-hyperdev-app",
-  "version": "0.0.1",
-  "description": "What am I about?",
+  "name": "StockPriceChecker",
+  "version": "0.1.0",
+  "description": "A bare-bone, no frills stock price checker",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
@@ -18,15 +18,10 @@
     "axios": "^0.19.2"
   },
   "engines": {
-    "node": "10"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://hyperdev.com/#!/project/welcome-project"
+    "node": "10.15.3"
   },
   "keywords": [
     "node",
-    "hyperdev",
     "express"
   ],
   "license": "MIT"
