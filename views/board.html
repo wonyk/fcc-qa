@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AMB</title>
+    <meta name="description" content="Self-made Anonymous Messaging Board" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/spectre.css/dist/spectre.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css"
+    />
+    <link rel="stylesheet" href="/public/css/board.css" />
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"
+      integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ="
+      crossorigin="anonymous"
+    ></script>
+    <script src="/public/js/board.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="columns">
+        <div class="column col-8 col-md-10 col-sm-11 p-centered mt-2">
+          <h1 class="text-center text-bold mt-2"></h1>
+          <section id="form">
+            <div class="card">
+              <div class="card-header">
+                <form id="newThread">
+                  <div class="form-group">
+                    <textarea
+                      class="form-input"
+                      id="new-thread-input"
+                      name="text"
+                      placeholder="Submit a new thread"
+                      rows="2"
+                      required
+                    ></textarea>
+                  </div>
+                  <div class="columns">
+                    <div class="column col-10 col-md-9 col-sm-8 col-xs-12">
+                      <input
+                        class="form-input"
+                        type="password"
+                        id="delete_password"
+                        placeholder="delete password"
+                        name="delete_password"
+                        required
+                      />
+                    </div>
+                    <div class="column col-2 col-md-3 col-sm-4 col-xs-12">
+                      <button
+                        type="submit"
+                        class="btn btn-block btn-primary submit"
+                      >
+                        Submit
+                      </button>
+                    </div>
+                  </div>
+                </form>
+                <div class="toast d-none"></div>
+              </div>
+            </div>
+          </section>
+          <section id="threads">
+            <div class="loading loading-lg" id="loading"></div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

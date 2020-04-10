@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AMB</title>
+    <meta name="description" content="Self-made Anonymous Messaging Board" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/spectre.css/dist/spectre.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css"
+    />
+    <link rel="stylesheet" href="/public/css/board.css" />
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"
+      integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ="
+      crossorigin="anonymous"
+    ></script>
+    <script src="/public/js/thread.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="columns">
+        <div class="column col-8 col-md-10 col-sm-11 p-centered mt-2">
+          <div class="card" id="thread-card">
+            <div class="card-header">
+              <div class="loading loading-lg"></div>
+            </div>
+            <div class="card-footer"></div>
+          </div>
+          <section id="form">
+            <div class="card">
+              <div class="card-header">
+                <form id="newReply">
+                  <div class="form-group">
+                    <textarea
+                      class="form-input"
+                      id="new-thread-input"
+                      name="text"
+                      placeholder="Submit a new reply"
+                      rows="2"
+                      required
+                    ></textarea>
+                  </div>
+                  <div class="columns">
+                    <div class="column col-10 col-sm-8 col-xs-12">
+                      <input
+                        class="form-input"
+                        type="password"
+                        id="delete_password"
+                        placeholder="delete password"
+                        name="delete_password"
+                        required
+                      />
+                    </div>
+                    <div class="column col-2 col-sm-4 col-xs-12">
+                      <button
+                        type="submit"
+                        class="btn btn-block btn-primary submit"
+                      >
+                        Submit
+                      </button>
+                    </div>
+                  </div>
+                </form>
+                <div class="toast toast-form d-none"></div>
+              </div>
+            </div>
+          </section>
+          <section id="replies">
+            <div class="card">
+              <div class="card-header">
+                <div class="card-subtitle text-gray">Sorted by New</div>
+              </div>
+              <div class="card-body" id="reply-card">
+                <div class="loading loading-lg" id="loading-reply"></div>
+              </div>
+            </div>
+          </section>
+          <section id="modal">
+            <div class="modal modal-sm">
+              <div class="modal-overlay" aria-label="Close"></div>
+              <div class="modal-container">
+                <div class="modal-header">
+                  <a
+                    href="#"
+                    id="close-modal"
+                    class="btn btn-clear float-right"
+                    aria-label="Close"
+                  ></a>
+                  <div class="modal-title h5">Are you sure?</div>
+                </div>
+                <div class="modal-body">
+                  <div class="content">
+                    <p>This action cannot be undone!</p>
+                    <p>Please type the delete password to continue.</p>
+                    <form id="delete">
+                      <div class="form-group">
+                        <input
+                          class="form-input"
+                          name="delete_password"
+                          type="password"
+                          placeholder="delete password"
+                          required
+                        />
+                      </div>
+                      <button class="btn btn-error btn-block">
+                        Confirm delete
+                      </button>
+                    </form>
+                    <div class="toast text-center d-none" id="password-toast">
+                      Wrong password
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
