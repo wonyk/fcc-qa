@@ -2,7 +2,7 @@
 
 This project is a self-created website that allows one to input books into their own personal library.
 
-It has completed all the requirements of the FCC [Information Security and Quality Assurance Projects - Personal Library](https://www.freecodecamp.org/learn/information-security-and-quality-assurance/information-security-and-quality-assurance-projects/personal-library)
+It has completed all the requirements of the FCC [Information Security and Quality Assurance Projects - Personal Library](https://www.freecodecamp.org/learn/quality-assurance/quality-assurance-projects/personal-library)
 project.
 
 ### Acknowledgements

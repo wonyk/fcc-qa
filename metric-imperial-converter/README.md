@@ -2,7 +2,7 @@
 
 This project is completed as part of the FCC ISQA Project number 1. It has fulfilled all the required user stories.
 The link to the task can be found
-[here](https://www.freecodecamp.org/learn/information-security-and-quality-assurance/information-security-and-quality-assurance-projects/metric-imperial-converter)
+[here](https://www.freecodecamp.org/learn/quality-assurance/quality-assurance-projects/metric-imperial-converter)
 
 ## Acknowledgements
 
@@ -31,6 +31,7 @@ functionalities used.
 The information is correct as of the latest commit. Should there be any discrepencies, please contact me for further arrangements.
 
 ## Remix the project
+
 <a href="https://glitch.com/edit/?utm_content=project_freecodecamp-boilerplate-project-metricimpconverter-9&utm_source=remix_this&utm_medium=button&utm_campaign=glitchButton#!/remix/freecodecamp-boilerplate-project-metricimpconverter-9">
   <img src="https://cdn.glitch.com/2bdfb3f8-05ef-4035-a06e-2043962a3a13%2Fremix%402x.png?1513093958726" alt="remix this" height="33">
 </a>
