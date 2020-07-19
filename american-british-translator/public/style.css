@@ -1,0 +1,91 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
+body {
+  padding: 1em 2em;
+}
+
+header {
+  height: auto;
+  white-space: normal;
+  text-align: center;
+}
+
+.form-container {
+  max-width: 95%;
+}
+
+textarea {
+  width: 100%;
+}
+
+#output-container,
+#solution-container,
+#text-input,
+#locale-select,
+input[type='button'] {
+  font-size: 1.1em;
+}
+
+#output-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 1em;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+#solution-container {
+  font-weight: bold;
+}
+
+#translated-sentence {
+  margin-top: 10px;
+  font-weight: normal;
+}
+
+#error-msg {
+  font-weight: normal;
+  color: red;
+}
+
+.highlight {
+  color: green;
+}
+
+#text-input {
+  padding: 10px;
+}
+
+@media (min-width: 768px) {
+  .form-container {
+    -ms-flex-item-align: end;
+    align-self: flex-end;
+  }
+
+  header {
+    text-align: start;
+  }
+
+  #output-container {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    margin-top: 0;
+    margin-left: 20px;
+  }
+
+  #solution-container {
+    width: 85%;
+    margin-top: 0;
+    margin-left: 20px;
+  }
+}

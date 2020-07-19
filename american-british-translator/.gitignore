@@ -1,0 +1,5 @@
+.vscode/*
+.env
+.glitch-assets
+.prettierrc
+node_modules/
