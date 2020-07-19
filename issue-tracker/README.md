@@ -3,7 +3,7 @@
 This project is a self-made all-usage issue tracker that can be used by anyone. Ideally, the application is best used by a single
 person since anyone who had access to the internet can edit any issue with full privileges.
 
-This project has fulfilled all the requirements of FCC [Information Security and Quality Assurance Projects - Issue Tracker](https://www.freecodecamp.org/learn/quality-assurance/quality-assurance-projects/issue-tracker)
+This project has fulfilled all the requirements of FCC [Quality Assurance Projects - Issue Tracker](https://www.freecodecamp.org/learn/quality-assurance/quality-assurance-projects/issue-tracker)
 and has gone through back-end integration tests.
 
 ### Getting Started
